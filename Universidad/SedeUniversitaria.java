@@ -1,3 +1,6 @@
+/*
+ * SedeUniversitaria.java
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +13,10 @@ public class SedeUniversitaria {
         this.estudiantes = new ArrayList<>();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public void registrarEstudiante(Estudiante estudiante) {
         estudiantes.add(estudiante);
     }
@@ -19,26 +26,28 @@ public class SedeUniversitaria {
     }
 
     public double calcularPromedioExamen(String nombreExamen) {
-        if (estudiantes.isEmpty()) {
-            return 0.0;
-        }
-
-        double sumaNotas = 0.0;
-        int cantidadEstudiantes = 0;
-
+        double suma = 0;
+        int contador = 0;
         for (Estudiante estudiante : estudiantes) {
             for (Examen examen : estudiante.getExamenes()) {
                 if (examen.getNombre().equals(nombreExamen)) {
-                    sumaNotas += examen.getNota();
-                    cantidadEstudiantes++;
+                    suma += examen.getNota();
+                    contador++;
                 }
             }
         }
+        return contador == 0 ? 0 : suma / contador;
+    }
 
-        if (cantidadEstudiantes == 0) {
-            return 0.0;
+    public double calcularPromedioGeneral() {
+        double suma = 0;
+        int contador = 0;
+        for (Estudiante estudiante : estudiantes) {
+            for (Examen examen : estudiante.getExamenes()) {
+                suma += examen.getNota();
+                contador++;
+            }
         }
-
-        return sumaNotas / cantidadEstudiantes;
+        return contador == 0 ? 0 : suma / contador;
     }
 }

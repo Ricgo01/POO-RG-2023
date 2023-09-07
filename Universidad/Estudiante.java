@@ -1,5 +1,12 @@
+
+/*
+ * Clase Estudiante
+ */
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Estudiante {
     private String nombre;
@@ -18,6 +25,10 @@ public class Estudiante {
         this.examenes = new ArrayList<>();
     }
 
+    public String getCodigoUnico() {
+        return codigoUnico;
+    }
+
     public void agregarExamen(Examen examen) {
         examenes.add(examen);
     }
@@ -27,73 +38,50 @@ public class Estudiante {
     }
 
     public double calcularPromedio() {
-        if (examenes.isEmpty()) {
-            return 0.0;
+        double suma = 0;
+        for(Examen examen : examenes) {
+            suma += examen.getNota();
         }
-
-        double sumaNotas = 0.0;
-        for (Examen examen : examenes) {
-            sumaNotas += examen.getNota();
-        }
-
-        return sumaNotas / examenes.size();
+        return suma / examenes.size();
     }
 
     public double calcularMediana() {
-        if (examenes.isEmpty()) {
-            return 0.0;
-        }
-
-        examenes.sort((e1, e2) -> Double.compare(e1.getNota(), e2.getNota()));
         int n = examenes.size();
-
-        if (n % 2 == 0) {
-            double nota1 = examenes.get(n / 2 - 1).getNota();
-            double nota2 = examenes.get(n / 2).getNota();
-            return (nota1 + nota2) / 2.0;
-        } else {
-            return examenes.get(n / 2).getNota();
+        List<Double> notas = new ArrayList<>();
+        for (Examen examen : examenes) {
+            notas.add(examen.getNota());
         }
+        Collections.sort(notas);
+        if (n % 2 != 0) {
+            return notas.get(n / 2);
+        }
+        return (notas.get((n - 1) / 2) + notas.get(n / 2)) / 2.0;
     }
 
     public double calcularModa() {
-        if (examenes.isEmpty()) {
-            return 0.0;
-        }
-
-        int maxFrecuencia = 0;
-        double moda = 0.0;
-
+        HashMap<Double, Integer> frecuenciaNotas = new HashMap<>();
         for (Examen examen : examenes) {
-            int frecuencia = 0;
-            for (Examen otroExamen : examenes) {
-                if (examen.getNota() == otroExamen.getNota()) {
-                    frecuencia++;
-                }
-            }
-
-            if (frecuencia > maxFrecuencia) {
-                maxFrecuencia = frecuencia;
-                moda = examen.getNota();
-            }
+            frecuenciaNotas.put(examen.getNota(), frecuenciaNotas.getOrDefault(examen.getNota(), 0) + 1);
         }
 
+        int maxFrecuencia = -1;
+        double moda = -1;
+        for (Map.Entry<Double, Integer> entry : frecuenciaNotas.entrySet()) {
+            if (entry.getValue() > maxFrecuencia) {
+                maxFrecuencia = entry.getValue();
+                moda = entry.getKey();
+            }
+        }
         return moda;
     }
 
     public double calcularDesviacionEstandar() {
-        if (examenes.isEmpty()) {
-            return 0.0;
-        }
-
         double promedio = calcularPromedio();
-        double sumaDiferenciasCuadradas = 0.0;
-
+        double sum = 0;
         for (Examen examen : examenes) {
-            double diferencia = examen.getNota() - promedio;
-            sumaDiferenciasCuadradas += diferencia * diferencia;
+            sum += Math.pow(examen.getNota() - promedio, 2);
         }
-
-        return Math.sqrt(sumaDiferenciasCuadradas / examenes.size());
+        return Math.sqrt(sum / examenes.size());
     }
 }
+
