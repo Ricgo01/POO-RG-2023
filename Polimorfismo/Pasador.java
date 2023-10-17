@@ -86,6 +86,9 @@ public class Pasador extends Jugador {
      * @return Efectividad del Pasador.
      */
     public float efectividadPasador(){
+        if (pases + fintasEfectivas + errores == 0) {
+            return super.calcularEfectividad();
+        }
         float efectividadPasador = ((pases + fintasEfectivas - errores) * 100/(pases + fintasEfectivas + errores) + super.calcularEfectividad());
         return efectividadPasador;
     }

@@ -57,13 +57,13 @@ public class Main {
                             System.out.println("Ingrese la cantidad de servicios totales del jugador");
                             int totalServicios = sc.nextInt();
                             sc.nextLine();
-                            System.out.println("Ingrese la cantidad de pases efectivos del jugador");
+                            System.out.println("Ingrese la cantidad de pases del jugador");
                             int pases = sc.nextInt();
                             sc.nextLine();
                             System.out.println("Ingrese la cantidad de fintas efectivas del jugador");
                             int fintasEfectivas = sc.nextInt();
                             sc.nextLine();
-                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, pases, fintasEfectivas, 0, tipoJugador);
+                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, 0, 0, 0, 0, pases, fintasEfectivas, tipoJugador);
                         }
                         else if (tipo == 2)
                         {
@@ -87,10 +87,10 @@ public class Main {
                             System.out.println("Ingrese la cantidad de bloqueos efectivos del jugador");
                             int bloqueosEfectivos = sc.nextInt();
                             sc.nextLine();
-                            System.out.println("Ingrese la cantidad de bloqueos fallidos del jugador");
-                            int bloqueosFallidos = sc.nextInt();
+                            System.out.println("Ingrese la cantidad de bloqueos totales del jugador");
+                            int bloqueosTotales = sc.nextInt();
                             sc.nextLine();
-                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, ataquesEfectivos, bloqueosEfectivos, bloqueosFallidos, tipoJugador);
+                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, ataquesEfectivos, bloqueosEfectivos, bloqueosTotales, 0, 0, 0, tipoJugador);
                         }
 
                         else if (tipo == 3)
@@ -109,10 +109,10 @@ public class Main {
                             System.out.println("Ingrese la cantidad de servicios totales del jugador");
                             int totalServicios = sc.nextInt();
                             sc.nextLine();
-                            System.out.println("Ingrese la cantidad de bloqueos efectivos del jugador");
-                            int bloqueosEfectivos = sc.nextInt();
+                            System.out.println("Ingrese la cantidad de recibos efectivos del jugador");
+                            int recibosEfectivos = sc.nextInt();
                             sc.nextLine();
-                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, 0, bloqueosEfectivos, 0, tipoJugador);
+                            torneo.agregarJugador(nombre, pais, errores, aces, totalServicios, recibosEfectivos, 0, 0, 0, 0, 0, tipoJugador);
                         }
                         break;
 

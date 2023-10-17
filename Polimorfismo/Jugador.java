@@ -120,6 +120,9 @@ public class Jugador {
      * @return Efectividad del jugador.
      */
     public float calcularEfectividad() {
+        if (totalServicios == 0) {
+            return 0;
+        }
         float efectividad = (float) aces * 100 / totalServicios;
         return efectividad;
     }

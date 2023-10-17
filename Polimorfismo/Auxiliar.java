@@ -87,7 +87,16 @@ public class Auxiliar extends Jugador {
      */
     @Override
     public String toString() {
-        return "Auxiliar{" + "ataquesEfectivos=" + ataquesEfectivos + ", bloqueosEfectivos=" + bloqueosEfectivos + ", bloqueosFallidos=" + bloqueosFallidos + '}';
+        return "Auxiliar{" +
+               "Nombre: " + nombre +
+                ", País: " + pais +
+                ", Errores: " + errores +
+                ", Aces: " + aces +
+                ", Total Servicios: " + totalServicios +
+                ", Ataques Efectivos: " + ataquesEfectivos +
+                ", Bloqueos Efectivos: " + bloqueosEfectivos +
+                ", Bloqueos Fallidos: " + bloqueosFallidos +
+                '}';
     }
 
     /**
@@ -96,6 +105,9 @@ public class Auxiliar extends Jugador {
      * @return Efectividad del auxiliar.
      */
     public float efectividadAuxiliar() {
+        if (ataquesEfectivos + bloqueosEfectivos + bloqueosFallidos + errores == 0) {
+            return super.calcularEfectividad();
+        }
         float efectividadAuxiliar = ((ataquesEfectivos + bloqueosEfectivos - bloqueosFallidos - errores) * 100/(ataquesEfectivos + bloqueosEfectivos + bloqueosFallidos + errores) + super.calcularEfectividad());
         return efectividadAuxiliar;
     }

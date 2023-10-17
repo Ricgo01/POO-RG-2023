@@ -65,6 +65,9 @@ public class Libero extends Jugador{
      * @return Efectividad del Libero.
      */
     public float efectividadLibero(){
+        if (recibosEfectivos + errores == 0) {
+            return super.calcularEfectividad();
+        }
         float efectividadLibero = ((recibosEfectivos - errores) * 100/(recibosEfectivos + errores) + super.calcularEfectividad());
         return efectividadLibero;
     } 

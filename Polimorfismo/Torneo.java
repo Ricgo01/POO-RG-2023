@@ -32,10 +32,10 @@ public class Torneo {
      * @param bloqueosFallidos Número de bloqueos fallidos (solo para Auxiliar).
      * @param tipoJugador Tipo de jugador (1: Pasador, 2: Auxiliar, 3: Libero).
      */
-    public void agregarJugador(String nombre, String pais, int errores, int aces, int totalServicios, int ataquesEfectivos, int bloqueosEfectivos, int bloqueosFallidos, int tipoJugador){
+    public void agregarJugador(String nombre, String pais, int errores, int aces, int totalServicios, int ataquesEfectivos, int bloqueosEfectivos, int bloqueosFallidos, int recibosEfectivos, int pases, int fintasEfectivas, int tipoJugador){
         switch (tipoJugador){
             case 1:
-                Pasador pas = new Pasador(nombre, pais, errores, aces, totalServicios, ataquesEfectivos, bloqueosEfectivos);
+                Pasador pas = new Pasador(nombre, pais, errores, aces, totalServicios, pases, fintasEfectivas);
                 jugadores.add(pas);
                 break;
             case 2:
@@ -43,7 +43,7 @@ public class Torneo {
                 jugadores.add(aux);
                 break;
             case 3:
-                Libero lib = new Libero(nombre, pais, errores, aces, totalServicios, bloqueosEfectivos);
+                Libero lib = new Libero(nombre, pais, errores, aces, totalServicios, recibosEfectivos);
                 jugadores.add(lib);
                 break;
         }
