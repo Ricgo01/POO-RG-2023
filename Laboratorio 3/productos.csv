@@ -1,0 +1,18 @@
+id,nombre,cantidadDisponible,cantidadVendida,estado,precio,mililitros,tipo,gramos,sabor,tamanio
+1001,Agua con Gas,250,110,Disponible,13,400,Bebida,,Fresa,
+1023,Soda Limon,210,55,Disponible,21,134,Bebida,,Fresa,
+1035,Totopos,320,85,Disponible,5,,Snack,132,Uva,Grande
+1104,Zumo de Manzana,160,35,Disponible,2,434,Bebida,,Fresa,
+1122,Chips de Platano,270,65,Disponible,5,,Snack,324,Fresa,Pequeno
+1130,Dulces de Miel,110,25,noDisponible,1.2,,Dulces,532,Fresa,
+1145,Agua con Aloe Vera,170,45,Disponible,4.2,632,Bebida,,Fresa,
+1158,Granola,130,28,Disponible,7,,Snack,134,Fresa,Mediano
+1169,Leche de Soya,190,48,Disponible,9,743,Bebida,,Mora,
+1173,Brownies,90,18,Disponible,10,,Dulces,324,Uva,
+1189,Infusion de Frutas,130,42,noDisponible,11,545,Bebida,,Fresa,
+1190,Chocolate Amargo,85,28,Disponible,25,,Dulces,42,Fresa,
+1201,Dulces de Avena,60,18,Disponible,16,,Dulces,243,Fresa,
+1212,Agua de Sandia,190,65,Disponible,6,543,Bebida,,Uva,
+1223,Palomitas de Maíz,130,32,noDisponible,7,,Snack,234,Fresa,Grande
+1234,Dulces de Fresa,95,12,Disponible,9,,Dulces,234,Fresa,
+1245,Anillos de Cebolla,155,125,Disponible,8,,Snack,234,Fresa,Mediano
