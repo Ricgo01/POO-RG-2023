@@ -24,7 +24,7 @@ public class Archivo {
 
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
-            br.readLine(); // Leer la primera línea (encabezados) y descartarla
+            br.readLine();
 
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split(",");
