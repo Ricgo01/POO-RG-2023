@@ -35,17 +35,14 @@ public class Main {
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine();  // Limpiar el buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
-                // Carga productos desde un archivo CSV
                     productos = Archivo.cargarProductos("productos.csv");
                     if (productos != null && !productos.isEmpty()) {
                         tienda.setInventario(productos);
                         System.out.println("Productos cargados exitosamente!");
-                        
-                        // Imprimir todos los productos cargados para depuración
                         for (Producto prod : productos) {
                             System.out.println(prod);
                         }
@@ -55,7 +52,6 @@ public class Main {
                     }
                     break;
                 case 2:
-                // Buscar un producto específico por ID
                     System.out.print("Ingrese el ID del producto a buscar: ");
                     int id = scanner.nextInt();
                     Producto producto = tienda.buscarProductoPorId(id);
@@ -66,7 +62,6 @@ public class Main {
                     }
                     break;
                 case 3:
-                // Listar productos por categoría
                     System.out.print("Ingrese la categoría a listar (Bebida, Snack, Dulces): ");
                     String categoria = scanner.nextLine();
                     List<Producto> productosCategoria = tienda.listarProductosPorCategoria(categoria);
