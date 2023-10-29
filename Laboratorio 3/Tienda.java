@@ -130,7 +130,7 @@ public class Tienda {
                 ventasCategoria += producto.calcularGanancias();
             }
         }
-        return ventasCategoria * 0.10; // Asumiendo una comisión del 10% por categoría
+        return ventasCategoria * 0.20;
     }
 
     
